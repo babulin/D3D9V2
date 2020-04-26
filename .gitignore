@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/x64/Debug
+/.vs/Mir2/v16
+/Mir2/Debug
+/Mir2/x64/Debug
