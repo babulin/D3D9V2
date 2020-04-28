@@ -18,7 +18,7 @@ void GameWnd::SetSize(float width, float height)
 
 void AhlinI::GameWnd::SetTitle(wstring title)
 {
-
+	this->title = title;
 }
 
 void GameWnd::Init(HINSTANCE hInstance)

@@ -3,7 +3,7 @@
 
 namespace AEngine {
 
-	class Graphies : public IGraphies{
+	class OpenGL : public IGraphies {
 		// Í¨¹ý IGraphies ¼Ì³Ð
 		virtual ExCode Init() override;
 	};

@@ -1,5 +1,7 @@
 #include "Engine.h"
 #include "GameWnd.h"
+#include "D3D9.h"
+#include "OpenGL.h"
 
 using namespace AEngine;
 using namespace AhlinI;
@@ -7,8 +9,13 @@ using namespace AhlinI;
 Engine* gEngine = nullptr;
 
 //启动引擎
-Engine* AEngine::Engine_Start()
+Engine* AEngine::Engine_Start(const int ver)
 {
+	if (ver != AGE_VERSION)
+	{
+		return nullptr;
+	}
+
 	if (gEngine == nullptr)
 	{
 		gEngine = new Engine();
@@ -23,25 +30,43 @@ Engine::Engine()
 }
 
 
-ExCode Engine::Init(HINSTANCE hInst)
+ExCode Engine::Init()
 {
 	//初始化窗口
+	HINSTANCE hInst = GetModuleHandle(nullptr);
 	pGameWnd->Init(hInst);
 
 	//初始化渲染模块
+	pGraphies = new D3D9();
+	//pGraphies = new OpenGL();
+	
+	pGraphies->SetWnd(pGameWnd);
+
+	if ( ! pGraphies->Init())
+	{
+		return ExCode::EX_FAIL;
+	}
+
+	//初始化输入
 
 	return ExCode::EX_OK;
 }
 
-bool Engine::Run()
+void Engine::Run()
 {
 	//循环
 	while (pGameWnd->GetMsg())
 	{
 		//回调
-		render();
+		if ( ! framFunc())
+		{
+			//结束
+			break;
+		}
+
+		//绘制
+		pGraphies->Draw();
 	}
-	return false;
 }
 
 void Engine::Close()
@@ -50,5 +75,11 @@ void Engine::Close()
 	{
 		delete pGameWnd;
 		pGameWnd = nullptr;
+	}
+
+	if (pGraphies != nullptr)
+	{
+		delete pGraphies;
+		pGraphies = nullptr;
 	}
 }
