@@ -19,27 +19,35 @@ Engine* AEngine::Engine_Start()
 Engine::Engine()
 {
 	//窗口
-	pGameWnd = new GameWnd();
+	pGameWnd = AhlinI::CreateWnd();
 }
 
 
-ExCode Engine::Init()
+ExCode Engine::Init(HINSTANCE hInst)
 {
-	pGameWnd->CreateWnd();
+	//初始化窗口
+	pGameWnd->Init(hInst);
+
+	//初始化渲染模块
+
 	return ExCode::EX_OK;
 }
 
-void Engine::Run()
+bool Engine::Run()
 {
+	//循环
+	while (pGameWnd->GetMsg())
+	{
 
+	}
+	return false;
 }
 
 void Engine::Close()
 {
-
-}
-
-void AEngine::Engine::SetWndSize(float width, float height)
-{
-	pGameWnd->SetSize(width, height);
+	if (pGameWnd != nullptr)
+	{
+		delete pGameWnd;
+		pGameWnd = nullptr;
+	}
 }

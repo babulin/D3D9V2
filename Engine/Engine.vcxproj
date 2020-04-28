@@ -77,6 +77,8 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(PlatformTarget)\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Configuration)\</IntDir>
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -157,6 +159,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameWnd.h" />
+    <ClInclude Include="Graphies.h" />
     <ClInclude Include="GError.h" />
     <ClInclude Include="IGraphies.h" />
     <ClInclude Include="IGameWnd.h" />
@@ -165,6 +168,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameWnd.cpp" />
     <ClCompile Include="GError.cpp" />
+    <ClCompile Include="Graphies.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,9 +11,8 @@ namespace AhlinI {
 	//异常码
 	enum ExCode
 	{
-		EX_ERROR = 0,	//错误
-		EX_WARN = 1,	//警告
-		EX_OK = 2,		//正确
+		EX_FAIL = 0,	//错误
+		EX_OK = 1,		//正确
 	};
 
 	class GError {

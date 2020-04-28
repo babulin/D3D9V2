@@ -22,6 +22,12 @@
     <Filter Include="头文件\核心">
       <UniqueIdentifier>{15b1b4f7-1bd3-4513-8599-320302e8dabb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\功能">
+      <UniqueIdentifier>{f02cf9f5-b335-4a1a-9318-bd7b8dd710b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\公共">
+      <UniqueIdentifier>{d1fa242e-88f3-4a32-882b-c3983501eab2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -30,20 +36,23 @@
     <ClInclude Include="IGraphies.h">
       <Filter>头文件\抽象层</Filter>
     </ClInclude>
-    <ClInclude Include="GameWnd.h">
-      <Filter>头文件\核心</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>头文件\核心</Filter>
-    </ClInclude>
-    <ClInclude Include="Common.h">
-      <Filter>头文件\核心</Filter>
-    </ClInclude>
-    <ClInclude Include="GError.h">
-      <Filter>头文件\核心</Filter>
-    </ClInclude>
     <ClInclude Include="IGameWnd.h">
       <Filter>头文件\抽象层</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphies.h">
+      <Filter>头文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>头文件\公共</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>头文件\公共</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWnd.h">
+      <Filter>头文件\公共</Filter>
+    </ClInclude>
+    <ClInclude Include="GError.h">
+      <Filter>头文件\公共</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>头文件\核心</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphies.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
