@@ -6,7 +6,7 @@
  * |<面向DirectX OpenGL接口>
  * +-----------------------------------------------
  */
-using namespace std;
+using std::wstring;
 
 namespace AhlinI {
 

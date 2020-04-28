@@ -5,8 +5,8 @@ using namespace AEngine;
 
 Engine* g_engine;
 
-void Show() {
-
+void Render() {
+	//MessageBox(NULL, L"Show！", L"小兔叽!", MB_OK);
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	g_engine->SetWndSize(800.0f, 600.0f);
 
 	//设置回调函数
-	g_engine->SetCallBack(Show);
+	g_engine->SetCallBack(Render);
 
 	//启动引擎
 	if (g_engine->Init(hInstance) != ExCode::EX_OK) {

@@ -38,7 +38,8 @@ bool Engine::Run()
 	//Ñ­»·
 	while (pGameWnd->GetMsg())
 	{
-
+		//»Øµ÷
+		render();
 	}
 	return false;
 }
