@@ -4,8 +4,6 @@
 #include "IGraphies.h"	//»æÍ¼
 
 using namespace AhlinI;
-//using AhlinI::ExCode;
-//using AhlinI::IGameWnd;
 
 namespace AEngine {
 
