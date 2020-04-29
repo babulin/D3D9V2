@@ -1,12 +1,16 @@
 #include "GError.h"
 
-AhlinI::GError::GError(ExCode _code, string _msg)
-{
-	code = _code;
-	msg = _msg;
-}
+namespace AhlinI {
 
-string AhlinI::GError::getMessage()
-{
-	return msg;
+	GError::GError(int code, const char* msg)
+	{
+		this->code = code;
+		this->msg = msg;
+	}
+
+	const char* GError::GetMsg()
+	{
+		return msg;
+	}
+
 }

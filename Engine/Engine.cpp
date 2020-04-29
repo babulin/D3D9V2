@@ -39,13 +39,12 @@ ExCode Engine::Init()
 	//初始化渲染模块
 	pGraphies = new D3D9();
 	//pGraphies = new OpenGL();
-	
 	pGraphies->SetWnd(pGameWnd);
-
 	if ( ! pGraphies->Init())
 	{
 		return ExCode::EX_FAIL;
 	}
+
 
 	//初始化输入
 

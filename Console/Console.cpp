@@ -11,6 +11,9 @@ bool FrameFunc() {
 	//设置一个图片
 	g_engine->SetSpirit();
 
+	//GError e(ExCode::EX_FAIL, "啊啊啊啊\n");
+	//throw e;
+
 	//返回true [false 则结束]
 	return true;
 }
@@ -35,7 +38,15 @@ int main(){
 	}
 
 	//运转
-	g_engine->Run();
+	try
+	{
+		g_engine->Run();
+	}
+	catch (GError e)
+	{
+		cout << e.GetMsg();
+	}
+
 
 	//结束
 	g_engine->Close();

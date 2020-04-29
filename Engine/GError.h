@@ -1,6 +1,5 @@
 #pragma once
-#include <string>
-using std::string;
+#include "Common.h"
 /**+-----------------------------------------------
  * | 异常处理 抽象层
  * |<基类>
@@ -8,19 +7,19 @@ using std::string;
  */
 namespace AhlinI {
 
-	//异常码
-	enum ExCode
-	{
-		EX_FAIL = 0,	//错误
-		EX_OK = 1,		//正确
-	};
+    //异常码
+    enum ExCode
+    {
+        EX_FAIL = 0,	//错误
+        EX_OK = 1,		//正确
+    };
 
-	class GError {
-		protected:
-			string msg;
-			ExCode code;
-		public:
-			GError(ExCode _code, string msg);
-			string getMessage();
-	};
+    class AHLIN_API GError{
+    protected:
+        const char* msg;
+        int code;
+    public:
+        GError(int code,const char* msg);
+        const char* GetMsg();
+    };
 }
