@@ -12,5 +12,7 @@ namespace AEngine {
 
 		// Í¨¹ý IGraphies ¼Ì³Ð
 		virtual void Draw() override;
+
+		~D3D9();
 	};
 }

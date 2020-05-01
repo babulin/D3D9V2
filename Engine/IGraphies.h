@@ -24,5 +24,7 @@ namespace AEngine {
         virtual void SetSpirit() = 0;
 
         virtual void Draw() = 0;
+
+        virtual ~IGraphies() {};
     };
 }

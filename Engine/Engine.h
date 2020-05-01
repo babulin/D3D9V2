@@ -1,7 +1,7 @@
 #pragma once
 #include "Common.h"
 #include "IGameWnd.h"	//窗口
-#include "IGraphies.h"	//绘图
+#include "Graphies.h"	//绘图
 
 using namespace AhlinI;
 
@@ -10,7 +10,7 @@ namespace AEngine {
 	class AHLIN_API Engine {
 	private:
 		IGameWnd* pGameWnd;		//游戏窗口
-		IGraphies* pGraphies;	//绘图接口
+		Graphies* pGraphies;	//绘图对象
 		frameCallback framFunc;	//回调函数
 	public:
 		Engine();
@@ -19,12 +19,20 @@ namespace AEngine {
 		void Close();	//关闭
 		void SetCallBack(frameCallback callback) { framFunc = callback; };
 
-		//窗口配置
-		void SetWndSize(float width, float height) { pGameWnd->SetSize(width, height); }	//设置窗口大小
-		void SetTitle(wstring title) { pGameWnd->SetTitle(title); }	//设置标题
+		//设置窗口大小
+		void SetWndSize(float width, float height) 
+		{ 
+			pGameWnd->SetSize(width, height); 
+		}	
+
+		//设置标题
+		void SetTitle(wstring title) 
+		{ 
+			pGameWnd->SetTitle(title); 
+		}	
 
 		//画家
-		void SetSpirit() { pGraphies->SetSpirit(); };
+		void SetSpirit();
 	};
 
 	//引擎启动

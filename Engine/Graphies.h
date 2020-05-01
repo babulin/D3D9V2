@@ -1,10 +1,18 @@
 #pragma once
 #include "IGraphies.h"
-
 namespace AEngine {
 
-	class Graphies : public IGraphies{
-		// Í¨¹ý IGraphies ¼Ì³Ð
-		virtual ExCode Init() override;
+	class Graphies{
+		
+	private:
+		IGraphies* _graphies;
+
+	public:
+		Graphies();
+		~Graphies();
+
+		bool Init();
+		void Draw();
+		IGraphies& Get();
 	};
 }

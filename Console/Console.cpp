@@ -8,6 +8,7 @@ Engine* g_engine = nullptr;
 bool FrameFunc() {
 	//MessageBox(NULL, L"Show！", L"小兔叽!", MB_OK);
 
+
 	//设置一个图片
 	g_engine->SetSpirit();
 
@@ -33,7 +34,7 @@ int main(){
 	g_engine->SetCallBack(FrameFunc);
 
 	//启动引擎
-	if (g_engine->Init() != ExCode::EX_OK) {
+	if (g_engine->Init() != EX_OK) {
 		MessageBox(NULL, L"引擎启动失败！", L"小兔叽!", MB_OK);
 	}
 

@@ -25,11 +25,12 @@ Engine* AEngine::Engine_Start(const int ver)
 
 Engine::Engine()
 {
-	//窗口
 	pGameWnd = AhlinI::CreateWnd();
 }
 
-
+//---------------------------------------
+//|初始化
+//---------------------------------------
 ExCode Engine::Init()
 {
 	//初始化窗口
@@ -37,20 +38,21 @@ ExCode Engine::Init()
 	pGameWnd->Init(hInst);
 
 	//初始化渲染模块
-	pGraphies = new D3D9();
-	//pGraphies = new OpenGL();
-	pGraphies->SetWnd(pGameWnd);
+	pGraphies = new Graphies();
+	pGraphies->Get().SetWnd(pGameWnd);
 	if ( ! pGraphies->Init())
 	{
-		return ExCode::EX_FAIL;
+		return EX_FAIL;
 	}
-
 
 	//初始化输入
 
-	return ExCode::EX_OK;
+	return EX_OK;
 }
 
+//---------------------------------------
+//| 运行
+//---------------------------------------
 void Engine::Run()
 {
 	//循环
@@ -81,4 +83,11 @@ void Engine::Close()
 		delete pGraphies;
 		pGraphies = nullptr;
 	}
+
+	delete this;
+}
+
+void AEngine::Engine::SetSpirit()
+{
+	pGraphies->Get().SetSpirit();
 }

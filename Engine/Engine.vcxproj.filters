@@ -39,46 +39,46 @@
     <ClInclude Include="IGameWnd.h">
       <Filter>头文件\抽象层</Filter>
     </ClInclude>
+    <ClInclude Include="D3D9.h">
+      <Filter>头文件\核心</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphies.h">
+      <Filter>头文件\核心</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL.h">
+      <Filter>头文件\核心</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWnd.h">
+      <Filter>头文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="GError.h">
+      <Filter>头文件\功能</Filter>
+    </ClInclude>
     <ClInclude Include="Common.h">
       <Filter>头文件\公共</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>头文件\公共</Filter>
-    </ClInclude>
-    <ClInclude Include="GameWnd.h">
-      <Filter>头文件\公共</Filter>
-    </ClInclude>
-    <ClInclude Include="GError.h">
-      <Filter>头文件\公共</Filter>
-    </ClInclude>
-    <ClInclude Include="D3D9.h">
-      <Filter>头文件\功能</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGL.h">
-      <Filter>头文件\功能</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphies.h">
-      <Filter>头文件\功能</Filter>
+      <Filter>头文件\核心</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameWnd.cpp">
-      <Filter>头文件\核心</Filter>
-    </ClCompile>
-    <ClCompile Include="GError.cpp">
-      <Filter>头文件\核心</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>头文件\核心</Filter>
     </ClCompile>
-    <ClCompile Include="D3D9.cpp">
+    <ClCompile Include="GameWnd.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
+    <ClCompile Include="D3D9.cpp">
+      <Filter>头文件\核心</Filter>
+    </ClCompile>
     <ClCompile Include="OpenGL.cpp">
+      <Filter>头文件\核心</Filter>
+    </ClCompile>
+    <ClCompile Include="GError.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
     <ClCompile Include="Graphies.cpp">
-      <Filter>头文件\功能</Filter>
+      <Filter>头文件\核心</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
