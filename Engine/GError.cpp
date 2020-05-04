@@ -1,6 +1,6 @@
 #include "GError.h"
 
-namespace AhlinI {
+namespace AEngine {
 
 	GError::GError(int code, const char* msg)
 	{

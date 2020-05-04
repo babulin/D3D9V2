@@ -1,93 +1,102 @@
 #include "Engine.h"
-#include "GameWnd.h"
 #include "D3D9.h"
-#include "OpenGL.h"
 
-using namespace AEngine;
-using namespace AhlinI;
+namespace AEngine {
 
-Engine* gEngine = nullptr;
+	Engine* gEngine = nullptr;
 
-//启动引擎
-Engine* AEngine::Engine_Start(const int ver)
-{
-	if (ver != AGE_VERSION)
+	//启动引擎
+	Engine* AEngine::CreateEngine(const int ver)
 	{
-		return nullptr;
-	}
-
-	if (gEngine == nullptr)
-	{
-		gEngine = new Engine();
-	}
-	return gEngine;
-}
-
-Engine::Engine()
-{
-	pGameWnd = AhlinI::CreateWnd();
-}
-
-//---------------------------------------
-//|初始化
-//---------------------------------------
-ExCode Engine::Init()
-{
-	//初始化窗口
-	HINSTANCE hInst = GetModuleHandle(nullptr);
-	pGameWnd->Init(hInst);
-
-	//初始化渲染模块
-	pGraphies = new Graphies();
-	pGraphies->Get().SetWnd(pGameWnd);
-	if ( ! pGraphies->Init())
-	{
-		return EX_FAIL;
-	}
-
-	//初始化输入
-
-	return EX_OK;
-}
-
-//---------------------------------------
-//| 运行
-//---------------------------------------
-void Engine::Run()
-{
-	//循环
-	while (pGameWnd->GetMsg())
-	{
-		//回调
-		if ( ! framFunc())
+		if (ver != AGE_VERSION)
 		{
-			//结束
-			break;
+			return nullptr;
 		}
 
-		//绘制
-		pGraphies->Draw();
+		if (gEngine == nullptr)
+		{
+			gEngine = new Engine();
+		}
+		return gEngine;
 	}
-}
 
-void Engine::Close()
-{
-	if (pGameWnd != nullptr)
+	//---------------------------------------
+	//| 构造函数
+	//---------------------------------------
+	Engine::Engine()
 	{
-		delete pGameWnd;
-		pGameWnd = nullptr;
+		pGameWnd = AEngine::CreateWnd();
 	}
 
-	if (pGraphies != nullptr)
+	//---------------------------------------
+	//| 初始化
+	//---------------------------------------
+	bool Engine::Init()
 	{
-		delete pGraphies;
-		pGraphies = nullptr;
+		//初始化窗口
+		HINSTANCE hInst = GetModuleHandle(nullptr);
+		pGameWnd->Init(hInst);
+
+		//初始化渲染模块
+		pD3D9 = D3D9::GetInstance();
+		pD3D9->SetWnd(pGameWnd);
+		if ( !pD3D9->Init())
+		{
+			return false;
+		}
+
+		//初始化游戏资源
+		if (!pGame->Init()) {
+			return false;
+		}
+
+		//初始化输入
+
+		return true;
 	}
 
-	delete this;
-}
+	//---------------------------------------
+	//| 运行
+	//---------------------------------------
+	void Engine::Run()
+	{
+		//循环
+		while (pGameWnd->GetMsg())
+		{
+			//回调
+			if ( !pGame->Update())
+			{
+				//结束
+				break;
+			}
 
-void AEngine::Engine::SetSpirit()
-{
-	pGraphies->Get().SetSpirit();
+			//绘制
+			pD3D9->BeginScene();
+
+			//回调
+			if (!pGame->Show())
+			{
+				//结束
+				break;
+			}
+
+			pD3D9->EndScene();
+		}
+	}
+
+	void Engine::Close()
+	{
+		if (pGameWnd != nullptr)
+		{
+			delete pGameWnd;
+			pGameWnd = nullptr;
+		}
+
+		if (pD3D9 != nullptr)
+		{
+			pD3D9->Release();
+		}
+
+		delete this;
+	}
 }

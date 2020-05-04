@@ -2,20 +2,39 @@
 
 namespace AEngine {
 
+	D3D9* D3D9::pD3D9 = nullptr;
+	int D3D9::Ref = 0;
 
-	ExCode D3D9::Init()
+	//DX单例模式
+	D3D9* D3D9::GetInstance()
+	{
+		if (pD3D9 == nullptr)
+		{
+			pD3D9 = new D3D9();
+		}
+
+		//引用计数增加
+		pD3D9->AddRef();
+
+		std::cout << "D3D9:" << pD3D9 << "  Ref:" << pD3D9->Ref << std::endl;
+
+		return pD3D9;
+	}
+
+	//初始化
+	bool D3D9::Init()
 	{
 		//创建D3D对象
 		m_d3d9 = Direct3DCreate9(D3D_SDK_VERSION);
 		if (m_d3d9 == NULL) {
-			return EX_FAIL;
+			return false;
 		}
 
 		///获取显卡模式
 		D3DDISPLAYMODE d3ddm;
 		if (FAILED(m_d3d9->GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &d3ddm)))
 		{
-			return EX_FAIL;
+			return false;
 		}
 
 		//校验硬件顶点运算
@@ -50,33 +69,31 @@ namespace AEngine {
 
 		//创建device设备
 		if (FAILED(m_d3d9->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pGameWnd->hwnd, vp, &d3dpp, &m_d3dDevice))) {
-			return EX_FAIL;
+			return false;
 		}
 
-		return EX_OK;
+		return true;
 	}
 
-	void D3D9::SetSpirit()
-	{
-
-	}
-
-	void D3D9::Draw()
+	//渲染
+	void D3D9::BeginScene()
 	{
 		m_d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(50, 50, 50), 1.0f, 0);
 		m_d3dDevice->BeginScene();
 		//--------------------------------------------------
+	}
 
-
-
+	//渲染
+	void D3D9::EndScene()
+	{
 		//--------------------------------------------------
 		m_d3dDevice->EndScene();
 		m_d3dDevice->Present(NULL, NULL, NULL, NULL);
 	}
 
-
 	D3D9::~D3D9() {
-
+		std::cout << "[x]D3D9:" << this << "  Ref:" << Ref << std::endl;
+		m_d3d9->Release();
+		m_d3dDevice->Release();
 	}
-
 }

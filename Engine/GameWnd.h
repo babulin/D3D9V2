@@ -1,7 +1,7 @@
 #pragma once
 #include "IGameWnd.h"
 
-namespace AhlinI {
+namespace AEngine {
 	class GameWnd : public IGameWnd {
 	public:
 		GameWnd() {

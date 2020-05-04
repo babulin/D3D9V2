@@ -16,9 +16,6 @@
     <Filter Include="头文件\抽象层">
       <UniqueIdentifier>{301d2100-401a-4d52-850c-4474ae5b6450}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\实现">
-      <UniqueIdentifier>{854f6a1b-f5e7-4551-868d-37acdb5d557c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\核心">
       <UniqueIdentifier>{15b1b4f7-1bd3-4513-8599-320302e8dabb}</UniqueIdentifier>
     </Filter>
@@ -28,25 +25,16 @@
     <Filter Include="头文件\公共">
       <UniqueIdentifier>{d1fa242e-88f3-4a32-882b-c3983501eab2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\开发">
+      <UniqueIdentifier>{854f6a1b-f5e7-4551-868d-37acdb5d557c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="IGraphies.h">
-      <Filter>头文件\抽象层</Filter>
-    </ClInclude>
     <ClInclude Include="IGameWnd.h">
       <Filter>头文件\抽象层</Filter>
-    </ClInclude>
-    <ClInclude Include="D3D9.h">
-      <Filter>头文件\核心</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphies.h">
-      <Filter>头文件\核心</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGL.h">
-      <Filter>头文件\核心</Filter>
     </ClInclude>
     <ClInclude Include="GameWnd.h">
       <Filter>头文件\功能</Filter>
@@ -60,6 +48,18 @@
     <ClInclude Include="Engine.h">
       <Filter>头文件\核心</Filter>
     </ClInclude>
+    <ClInclude Include="D3D9.h">
+      <Filter>头文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphies.h">
+      <Filter>头文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="IGame.h">
+      <Filter>头文件\开发</Filter>
+    </ClInclude>
+    <ClInclude Include="Spirit.h">
+      <Filter>头文件\开发</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -68,17 +68,17 @@
     <ClCompile Include="GameWnd.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
-    <ClCompile Include="D3D9.cpp">
-      <Filter>头文件\核心</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGL.cpp">
-      <Filter>头文件\核心</Filter>
-    </ClCompile>
     <ClCompile Include="GError.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
+    <ClCompile Include="D3D9.cpp">
+      <Filter>头文件\功能</Filter>
+    </ClCompile>
     <ClCompile Include="Graphies.cpp">
-      <Filter>头文件\核心</Filter>
+      <Filter>头文件\功能</Filter>
+    </ClCompile>
+    <ClCompile Include="Spirit.cpp">
+      <Filter>头文件\开发</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

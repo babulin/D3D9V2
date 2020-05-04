@@ -8,7 +8,7 @@
  */
 using std::wstring;
 
-namespace AhlinI {
+namespace AEngine {
 
 	class IGameWnd {
     public:

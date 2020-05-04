@@ -5,7 +5,7 @@
  * |<»ùÀà>
  * +-----------------------------------------------
  */
-namespace AhlinI {
+namespace AEngine {
 
     //Òì³£Âë
     enum ExCode

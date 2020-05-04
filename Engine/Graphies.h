@@ -1,18 +1,22 @@
 #pragma once
-#include "IGraphies.h"
+#include "D3D9.h"
+/**+----------------------------------
+ * | 绘图类 <用于基类>
+ * +----------------------------------
+ */
 namespace AEngine {
 
-	class Graphies{
+	class AHLIN_API Graphies{
 		
 	private:
-		IGraphies* _graphies;
-
+		D3D9* _graphies;
+	protected:
+		IDirect3DTexture9* pTexture1;
 	public:
 		Graphies();
-		~Graphies();
+		virtual ~Graphies();
 
-		bool Init();
-		void Draw();
-		IGraphies& Get();
+		LPDIRECT3DDEVICE9 GetDevice();
+		D3D9* Get();
 	};
 }
