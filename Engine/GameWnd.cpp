@@ -11,20 +11,41 @@ namespace AEngine {
 		return gGameWnd;
 	}
 
+	//构造函数
+	GameWnd::GameWnd()
+	{
+		std::cout << "GameWind()构造" << std::endl;
+		hwnd = nullptr;
+		wndRect = { 0,0,0,0 };
+		width = 800.0f;
+		height = 600.0f;
+		title = L"DX9 v2.1";
+	}
+
+	//析构函数
+	GameWnd::~GameWnd()
+	{
+		std::cout << "~GameWind()析构" << std::endl;
+	}
+
+	//设置窗口大小
 	void GameWnd::SetSize(float width, float height)
 	{
 		this->width = width;
 		this->height = height;
 	}
 
+	//设置标题
 	void GameWnd::SetTitle(wstring title)
 	{
 		this->title = title;
 	}
 
+	//初始化
 	void GameWnd::Init(HINSTANCE hInstance)
 	{
-		OutputDebugString(L"GameWind()构造\n");
+		std::cout << "GameWind::Init()" << std::endl;
+
 		//1、对象
 		WNDCLASS wc;
 		wc.cbClsExtra = 0;										//类额外的内存，通常为零
@@ -78,6 +99,7 @@ namespace AEngine {
 		UpdateWindow(hwnd);
 	}
 
+	//消息循环
 	bool GameWnd::GetMsg()
 	{
 		MSG msg;

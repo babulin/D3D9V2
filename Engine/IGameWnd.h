@@ -26,6 +26,7 @@ namespace AEngine {
         virtual void Init(HINSTANCE hInstance) = 0;
         virtual bool GetMsg() = 0;
         static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+        virtual ~IGameWnd() {};
 	};
 
     IGameWnd* CreateWnd();

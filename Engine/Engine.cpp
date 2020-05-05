@@ -64,9 +64,7 @@ namespace AEngine {
 		while (pGameWnd->GetMsg())
 		{
 			//回调
-			if ( !pGame->Update())
-			{
-				//结束
+			if ( !pGame->Update()){
 				break;
 			}
 
@@ -74,9 +72,7 @@ namespace AEngine {
 			pD3D9->BeginScene();
 
 			//回调
-			if (!pGame->Show())
-			{
-				//结束
+			if (!pGame->Show()){
 				break;
 			}
 

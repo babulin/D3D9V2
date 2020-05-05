@@ -1,16 +1,12 @@
 #pragma once
 #include "IGameWnd.h"
+#include <iostream>
 
 namespace AEngine {
 	class GameWnd : public IGameWnd {
 	public:
-		GameWnd() {
-			hwnd = nullptr;
-			wndRect = {0,0,0,0};
-			width = 800.0f;
-			height = 600.0f;
-			title = L"DX9 v2.1";
-		};
+		GameWnd();
+		~GameWnd();
 		virtual void SetSize(float width,float height);
 		virtual void SetTitle(wstring title);
 		virtual void Init(HINSTANCE hInstance);
