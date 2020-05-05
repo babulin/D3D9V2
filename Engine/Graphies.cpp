@@ -27,6 +27,6 @@ namespace AEngine {
 	//Îö¹¹
 	Graphies::~Graphies()
 	{
-		_graphies->Release();
+
 	}
 }

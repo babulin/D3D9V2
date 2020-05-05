@@ -1,9 +1,12 @@
 #include "GameWnd.h"
-
+#include <iostream>
 namespace AEngine {
 
-	IGameWnd* gGameWnd;
-	AEngine::IGameWnd* AEngine::CreateWnd() {
+	//初始化静态成员
+	GameWnd* GameWnd::gGameWnd = nullptr;
+
+	GameWnd* GameWnd::CreateWnd()
+	{
 		if (gGameWnd == nullptr)
 		{
 			gGameWnd = new GameWnd();
@@ -17,9 +20,9 @@ namespace AEngine {
 		std::cout << "GameWind()构造" << std::endl;
 		hwnd = nullptr;
 		wndRect = { 0,0,0,0 };
-		width = 800.0f;
-		height = 600.0f;
-		title = L"DX9 v2.1";
+		width = 800;
+		height = 600;
+		title = L"Ahlin'sGE D3D9 V2.1.0";
 	}
 
 	//析构函数
@@ -29,11 +32,13 @@ namespace AEngine {
 	}
 
 	//设置窗口大小
-	void GameWnd::SetSize(float width, float height)
+	void GameWnd::SetSize(int _width, int _height)
 	{
-		this->width = width;
-		this->height = height;
+		width = _width;
+		height = _height;
 	}
+
+
 
 	//设置标题
 	void GameWnd::SetTitle(wstring title)
@@ -42,9 +47,11 @@ namespace AEngine {
 	}
 
 	//初始化
-	void GameWnd::Init(HINSTANCE hInstance)
+	bool GameWnd::Create()
 	{
 		std::cout << "GameWind::Init()" << std::endl;
+
+		HINSTANCE hInstance = GetModuleHandle(nullptr);
 
 		//1、对象
 		WNDCLASS wc;
@@ -94,6 +101,13 @@ namespace AEngine {
 
 		GetClientRect(hwnd, &clientRect);
 
+		Update();
+
+		return true;
+	}
+
+	void GameWnd::Update()
+	{
 		//5、显示和更新
 		ShowWindow(hwnd, SW_SHOWDEFAULT);
 		UpdateWindow(hwnd);
@@ -135,8 +149,8 @@ namespace AEngine {
 			{
 				int width = LOWORD(lParam);
 				int height = HIWORD(lParam);
-				gGameWnd->width = static_cast<float>(width);
-				gGameWnd->height = static_cast<float>(height);
+				gGameWnd->width = width;
+				gGameWnd->height = height;
 			}
 			break;
 		}

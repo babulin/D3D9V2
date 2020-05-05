@@ -163,7 +163,6 @@
     <ClInclude Include="GError.h" />
     <ClInclude Include="Graphies.h" />
     <ClInclude Include="IGame.h" />
-    <ClInclude Include="IGameWnd.h" />
     <ClInclude Include="Spirit.h" />
   </ItemGroup>
   <ItemGroup>

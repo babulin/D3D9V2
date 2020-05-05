@@ -33,9 +33,6 @@
     <ClInclude Include="framework.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="IGameWnd.h">
-      <Filter>头文件\抽象层</Filter>
-    </ClInclude>
     <ClInclude Include="GameWnd.h">
       <Filter>头文件\功能</Filter>
     </ClInclude>
@@ -51,14 +48,14 @@
     <ClInclude Include="D3D9.h">
       <Filter>头文件\功能</Filter>
     </ClInclude>
-    <ClInclude Include="Graphies.h">
-      <Filter>头文件\功能</Filter>
-    </ClInclude>
     <ClInclude Include="IGame.h">
       <Filter>头文件\开发</Filter>
     </ClInclude>
     <ClInclude Include="Spirit.h">
       <Filter>头文件\开发</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphies.h">
+      <Filter>头文件\抽象层</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,11 +71,11 @@
     <ClCompile Include="D3D9.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
-    <ClCompile Include="Graphies.cpp">
-      <Filter>头文件\功能</Filter>
-    </ClCompile>
     <ClCompile Include="Spirit.cpp">
       <Filter>头文件\开发</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphies.cpp">
+      <Filter>头文件\抽象层</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

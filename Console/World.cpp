@@ -22,9 +22,9 @@ bool World::Update()
 		g_spirit1 = nullptr;
 
 		//ÇĞ»»µ½World
-		Engine* engine = CreateEngine(AGE_VERSION);
+		Engine* engine = Engine::CreateEngine(AGE_VERSION);
 		g_game.Init();
-		engine->SetCallBack(&g_game);
+		engine->SetGame(&g_game);
 	}
 	return true;
 }

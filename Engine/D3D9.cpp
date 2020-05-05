@@ -2,8 +2,8 @@
 
 namespace AEngine {
 
+	//静态成员初始化
 	D3D9* D3D9::pD3D9 = nullptr;
-	int D3D9::Ref = 0;
 
 	//DX单例模式
 	D3D9* D3D9::GetInstance()
@@ -12,18 +12,26 @@ namespace AEngine {
 		{
 			pD3D9 = new D3D9();
 		}
-
-		//引用计数增加
-		pD3D9->AddRef();
-
-		std::cout << "D3D9:" << pD3D9 << "  Ref:" << pD3D9->Ref << std::endl;
-
 		return pD3D9;
+	}
+
+	D3D9::D3D9() {
+		std::cout << "D3D9() : this => " << this << "pD3D => " << pD3D9 << std::endl;
+	}
+
+	void D3D9::SetWnd(GameWnd* _gameWnd)
+	{
+		pGameWnd = _gameWnd;
 	}
 
 	//初始化
 	bool D3D9::Init()
 	{
+		if (pGameWnd == nullptr)
+		{
+			MessageBox(nullptr, L"D3D9::SetWnd()请指定窗口类对象!",L"error",MB_OK);
+		}
+
 		//创建D3D对象
 		m_d3d9 = Direct3DCreate9(D3D_SDK_VERSION);
 		if (m_d3d9 == NULL) {
@@ -92,7 +100,7 @@ namespace AEngine {
 	}
 
 	D3D9::~D3D9() {
-		std::cout << "[x]D3D9:" << this << "  Ref:" << Ref << std::endl;
+		std::cout << "[x]D3D9::~D3D9()"<< std::endl;
 		m_d3d9->Release();
 		m_d3dDevice->Release();
 	}

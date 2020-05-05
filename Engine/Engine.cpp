@@ -3,21 +3,22 @@
 
 namespace AEngine {
 
-	Engine* gEngine = nullptr;
+	//初始化静态成员
+	Engine* Engine::pEngine = nullptr;
 
-	//启动引擎
-	Engine* AEngine::CreateEngine(const int ver)
+	//创建引擎
+	 Engine* Engine::CreateEngine(const int ver)
 	{
 		if (ver != AGE_VERSION)
 		{
 			return nullptr;
 		}
 
-		if (gEngine == nullptr)
+		if (pEngine == nullptr)
 		{
-			gEngine = new Engine();
+			pEngine = new Engine();
 		}
-		return gEngine;
+		return pEngine;
 	}
 
 	//---------------------------------------
@@ -25,8 +26,11 @@ namespace AEngine {
 	//---------------------------------------
 	Engine::Engine()
 	{
-		pGameWnd = AEngine::CreateWnd();
+		pGameWnd = GameWnd::CreateWnd();
+		pD3D9 = D3D9::GetInstance();
+		pD3D9->SetWnd(pGameWnd);
 	}
+
 
 	//---------------------------------------
 	//| 初始化
@@ -34,23 +38,30 @@ namespace AEngine {
 	bool Engine::Init()
 	{
 		//初始化窗口
-		HINSTANCE hInst = GetModuleHandle(nullptr);
-		pGameWnd->Init(hInst);
+		if ( ! pGameWnd->Create()) 
+		{
+			return false;
+		}
 
-		//初始化渲染模块
-		pD3D9 = D3D9::GetInstance();
-		pD3D9->SetWnd(pGameWnd);
-		if ( !pD3D9->Init())
+		//初始化DX9
+		if ( ! pD3D9->Init())
 		{
 			return false;
 		}
 
 		//初始化游戏资源
-		if (!pGame->Init()) {
+		if (pGame == nullptr)
+		{
+			MessageBox(nullptr, L"Engine::SetGame();必须设置一个游戏类!",L"error",MB_OK);
+			return false;
+		}
+
+		if ( ! pGame->Init()) {
 			return false;
 		}
 
 		//初始化输入
+
 
 		return true;
 	}
@@ -64,7 +75,8 @@ namespace AEngine {
 		while (pGameWnd->GetMsg())
 		{
 			//回调
-			if ( !pGame->Update()){
+			if ( !pGame->Update())
+			{
 				break;
 			}
 
@@ -80,6 +92,9 @@ namespace AEngine {
 		}
 	}
 
+	//---------------------------------------
+	//| 引擎关闭
+	//---------------------------------------
 	void Engine::Close()
 	{
 		if (pGameWnd != nullptr)
@@ -90,9 +105,32 @@ namespace AEngine {
 
 		if (pD3D9 != nullptr)
 		{
-			pD3D9->Release();
+			delete pD3D9;
+			pD3D9 = nullptr;
 		}
 
 		delete this;
+	}
+
+	//---------------------------------------
+	//| 游戏更新类
+	//---------------------------------------
+	void Engine::SetGame(IGame* _game)
+	{
+		pGame = _game;
+	}
+
+	//设置标题
+	void Engine::SetTitle(wstring _title)
+	{
+		if (pGameWnd != nullptr)
+			pGameWnd->SetTitle(_title);
+	}
+
+	//设置大小
+	void Engine::SetSize(int w, int h)
+	{
+		if (pGameWnd != nullptr)
+			pGameWnd->SetSize(w, h);
 	}
 }

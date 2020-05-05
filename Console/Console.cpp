@@ -12,19 +12,20 @@ int main(){
 	cout << "AEngine Start...." << endl;
 
 	//引擎点火
-	g_engine = CreateEngine(AGE_VERSION);
+	g_engine = Engine::CreateEngine(AGE_VERSION);
 
 	//设置标题
-	g_engine->SetTitle(L"Ahlin'sGE D3D9 V2.1.0");
+	g_engine->SetTitle(L"Ahlin'sGE D3D9 V2.2.0");
 	//设置窗口大小
-	g_engine->SetWndSize(1024.0f, 768.0f);
+	g_engine->SetSize(1024, 768);
 
-	//设置回调函数
-	g_engine->SetCallBack(&gGame);
+	//设置游戏类
+	g_engine->SetGame(&gGame);
 
 	//启动引擎
 	if ( ! g_engine->Init()) {
 		MessageBox(NULL, L"引擎启动失败！", L"小兔叽!", MB_OK);
+		return 0;
 	}
 
 	//运转
