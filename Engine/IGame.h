@@ -5,5 +5,6 @@ namespace AEngine{
 		virtual bool Init() = 0;
 		virtual bool Update() = 0;
 		virtual bool Show() = 0;
+		virtual ~IGame() {};
 	};
 }

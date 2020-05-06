@@ -109,6 +109,11 @@ namespace AEngine {
 			pD3D9 = nullptr;
 		}
 
+		if (pGame != nullptr)
+		{
+			delete pGame;
+		}
+
 		delete this;
 	}
 

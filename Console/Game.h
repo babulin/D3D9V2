@@ -7,10 +7,10 @@ class Game : public IGame {
 public:
 	// 通过 IGame 继承
 	Game() {
-		std::cout << "Game()初始化" << std::endl;
+		std::cout << "[" << this << "]" << "Game()初始化" << std::endl;
 	}
 	~Game() {
-		std::cout << "~Game()析构" << std::endl;
+		std::cout << "[" << this << "]" << "[x]Game::~Game()析构" << std::endl;
 	}
 	virtual bool Init() override;
 	virtual bool Update() override;

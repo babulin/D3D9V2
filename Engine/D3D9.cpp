@@ -16,7 +16,7 @@ namespace AEngine {
 	}
 
 	D3D9::D3D9() {
-		std::cout << "D3D9() : this => " << this << "pD3D => " << pD3D9 << std::endl;
+		std::cout << "[" << this << "]" << "D3D9::D3D9()\tthis:" << std::endl;
 	}
 
 	void D3D9::SetWnd(GameWnd* _gameWnd)
@@ -27,6 +27,8 @@ namespace AEngine {
 	//初始化
 	bool D3D9::Init()
 	{
+		std::cout << "[" << this << "]" << "D3D9::Init()" << std::endl;
+
 		if (pGameWnd == nullptr)
 		{
 			MessageBox(nullptr, L"D3D9::SetWnd()请指定窗口类对象!",L"error",MB_OK);

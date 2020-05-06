@@ -4,13 +4,11 @@
 using namespace std;
 using namespace AEngine;
 
-Game gGame;
-Engine* g_engine = nullptr;
-
 int main(){
 
-	cout << "AEngine Start...." << endl;
+	cout << "[O]AEngine Start...." << endl;
 
+	Engine* g_engine = nullptr;
 	//引擎点火
 	g_engine = Engine::CreateEngine(AGE_VERSION);
 
@@ -20,13 +18,16 @@ int main(){
 	g_engine->SetSize(1024, 768);
 
 	//设置游戏类
-	g_engine->SetGame(&gGame);
+	Game* gGame = new Game();
+	g_engine->SetGame(gGame);
 
-	//启动引擎
+	//初始化
 	if ( ! g_engine->Init()) {
 		MessageBox(NULL, L"引擎启动失败！", L"小兔叽!", MB_OK);
 		return 0;
 	}
+
+
 
 	//运转
 	g_engine->Run();
@@ -34,7 +35,7 @@ int main(){
 	//结束
 	g_engine->Close();
 
-	cout << "AEngine Close...." << endl;
+	cout << "[X]AEngine Close...." << endl;
 
  	return 0;
 }

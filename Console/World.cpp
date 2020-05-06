@@ -3,10 +3,11 @@
 #include "Engine.h"
 #include "Spirit.h"
 
-Game g_game;
+
 Spirit* g_spirit1;
 bool World::Init()
 {
+	std::cout << "[" << this << "]" << "World::Init()" << std::endl;
 	g_spirit1 = new Spirit(L"2.png");
 	g_spirit1->Load();
 
@@ -23,8 +24,11 @@ bool World::Update()
 
 		//ÇÐ»»µ½World
 		Engine* engine = Engine::CreateEngine(AGE_VERSION);
-		g_game.Init();
-		engine->SetGame(&g_game);
+		Game* g_game = new Game();
+		g_game->Init();
+		engine->SetGame(g_game);
+
+		delete this;
 	}
 	return true;
 }

@@ -17,7 +17,7 @@ namespace AEngine {
 	//构造函数
 	GameWnd::GameWnd()
 	{
-		std::cout << "GameWind()构造" << std::endl;
+		std::cout << "[" << this << "]" << "GameWind::GameWind()"<< std::endl;
 		hwnd = nullptr;
 		wndRect = { 0,0,0,0 };
 		width = 800;
@@ -28,7 +28,7 @@ namespace AEngine {
 	//析构函数
 	GameWnd::~GameWnd()
 	{
-		std::cout << "~GameWind()析构" << std::endl;
+		std::cout << "[" << this << "]" << "[x]GameWind::~GameWind()析构" << std::endl;
 	}
 
 	//设置窗口大小
@@ -49,7 +49,7 @@ namespace AEngine {
 	//初始化
 	bool GameWnd::Create()
 	{
-		std::cout << "GameWind::Init()" << std::endl;
+		std::cout << "[" << this << "]" << "GameWind::Create()" << std::endl;
 
 		HINSTANCE hInstance = GetModuleHandle(nullptr);
 
