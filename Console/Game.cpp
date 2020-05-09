@@ -3,6 +3,7 @@
 #include "Spirit.h"
 #include "Engine.h"
 #include <Windows.h>
+#include <DirectXMath.h>
 
 Spirit* g_spirit;
 bool Game::Init()
@@ -10,7 +11,7 @@ bool Game::Init()
 	std::cout << "[" << this << "]" << "Game::Init()" << std::endl;
 
 	//初始化一些资源
-	g_spirit = new Spirit(L"1.png");
+	g_spirit = new Spirit(L"1.png",L"2.png");
 	g_spirit->Load();
 
 	return true;
@@ -44,7 +45,7 @@ bool Game::Show()
 
 	if (g_spirit != nullptr)
 	{
-		g_spirit->Show(1024.0f,768.0f,0.0f,0.0f);
+		g_spirit->Show(500.0f,480.0f,0.0f,0.0f);
 	}
 
 	return true;

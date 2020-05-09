@@ -8,7 +8,7 @@ Spirit* g_spirit1;
 bool World::Init()
 {
 	std::cout << "[" << this << "]" << "World::Init()" << std::endl;
-	g_spirit1 = new Spirit(L"2.png");
+	g_spirit1 = new Spirit(L"2.png",L"1.png");
 	g_spirit1->Load();
 
 	return true;

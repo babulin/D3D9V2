@@ -12,6 +12,7 @@ namespace AEngine {
 		D3D9* _graphies;
 	protected:
 		IDirect3DTexture9* pTexture1;
+		IDirect3DTexture9* pTexture2;
 	public:
 		Graphies();
 		virtual ~Graphies();
