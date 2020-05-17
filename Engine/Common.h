@@ -48,3 +48,12 @@ struct UV1Vertex
 	static const DWORD FVF = D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1;
 };
 
+struct UV2Vertex
+{
+	float x, y, z, rhw;
+	DWORD color;
+	float u1, v1;
+	float u2, v2;
+	static const DWORD FVF = D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX2;
+};
+

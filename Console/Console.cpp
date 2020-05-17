@@ -1,12 +1,12 @@
 ﻿#include <Engine.h>
 #include <iostream>
-#include "Game.h"
+#include "MScene.h"
 using namespace std;
 using namespace AEngine;
 
 int main(){
 
-	cout << "[O]AEngine Start...." << endl;
+	cout << "[O]Engine Start...." << endl;
 
 	Engine* g_engine = nullptr;
 	//引擎点火
@@ -18,8 +18,8 @@ int main(){
 	g_engine->SetSize(1024, 768);
 
 	//设置游戏类
-	Game* gGame = new Game();
-	g_engine->SetGame(gGame);
+	MScene mScene;
+	g_engine->SetGame(&mScene);
 
 	//初始化
 	if ( ! g_engine->Init()) {
@@ -27,15 +27,13 @@ int main(){
 		return 0;
 	}
 
-
-
 	//运转
 	g_engine->Run();
 
 	//结束
 	g_engine->Close();
 
-	cout << "[X]AEngine Close...." << endl;
+	cout << "[X]Engine Close...." << endl << endl;
 
  	return 0;
 }

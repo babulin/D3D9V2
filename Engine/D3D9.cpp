@@ -16,7 +16,7 @@ namespace AEngine {
 	}
 
 	D3D9::D3D9() {
-		std::cout << "[" << this << "]" << "D3D9::D3D9()\tthis:" << std::endl;
+		std::cout << "[" << this << "]" << "D3D9::D3D9()\t" << std::endl;
 	}
 
 	void D3D9::SetWnd(GameWnd* _gameWnd)
@@ -76,7 +76,7 @@ namespace AEngine {
 		d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
 		d3dpp.EnableAutoDepthStencil = TRUE;//自动维护深度缓存
 		d3dpp.AutoDepthStencilFormat = D3DFMT_D16;//深度缓存像素格式[clear时清除ZBUFFER] D3DCLEAR_ZBUFFER
-		d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;// D3DPRESENT_INTERVAL_IMMEDIATE;
+		d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;//D3DPRESENT_INTERVAL_DEFAULT;// D3DPRESENT_INTERVAL_IMMEDIATE;
 		//创建device设备
 		if (FAILED(m_d3d9->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pGameWnd->hwnd, vp, &d3dpp, &m_d3dDevice))) {
 			return false;
@@ -102,7 +102,7 @@ namespace AEngine {
 	}
 
 	D3D9::~D3D9() {
-		std::cout << "[x]D3D9::~D3D9()"<< std::endl;
+		std::cout << "[X]" << "[" << this << "]" << "D3D9::~D3D9()" << std::endl;
 		m_d3d9->Release();
 		m_d3dDevice->Release();
 	}

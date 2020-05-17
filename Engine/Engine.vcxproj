@@ -163,6 +163,8 @@
     <ClInclude Include="GError.h" />
     <ClInclude Include="Graphies.h" />
     <ClInclude Include="IGame.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="SceneManage.h" />
     <ClInclude Include="Spirit.h" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +173,8 @@
     <ClCompile Include="GError.cpp" />
     <ClCompile Include="D3D9.cpp" />
     <ClCompile Include="Graphies.cpp" />
+    <ClCompile Include="IGame.cpp" />
+    <ClCompile Include="SceneManage.cpp" />
     <ClCompile Include="Spirit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

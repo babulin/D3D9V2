@@ -57,6 +57,12 @@
     <ClInclude Include="Graphies.h">
       <Filter>头文件\抽象层</Filter>
     </ClInclude>
+    <ClInclude Include="SceneManage.h">
+      <Filter>头文件\核心</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>头文件\核心</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -76,6 +82,12 @@
     </ClCompile>
     <ClCompile Include="Graphies.cpp">
       <Filter>头文件\抽象层</Filter>
+    </ClCompile>
+    <ClCompile Include="IGame.cpp">
+      <Filter>头文件\开发</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManage.cpp">
+      <Filter>头文件\核心</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

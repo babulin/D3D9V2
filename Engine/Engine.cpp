@@ -50,13 +50,13 @@ namespace AEngine {
 		}
 
 		//初始化游戏资源
-		if (pGame == nullptr)
+		if (pScene == nullptr)
 		{
-			MessageBox(nullptr, L"Engine::SetGame();必须设置一个游戏类!",L"error",MB_OK);
+			MessageBox(nullptr, L"Engine::SetGame();必须设置一个SceneManage场景管理!",L"error",MB_OK);
 			return false;
 		}
 
-		if ( ! pGame->Init()) {
+		if ( !pScene->Init()) {
 			return false;
 		}
 
@@ -74,18 +74,33 @@ namespace AEngine {
 		//循环
 		while (pGameWnd->GetMsg())
 		{
-			//回调
-			if ( !pGame->Update())
+			//场景管理更新
+			if ( ! pScene->Update())
 			{
 				break;
+			}
+
+			//实例场景
+			IScene *sence = pScene->GetScene();
+			//std::cout << "sence:" << sence << std::endl;
+			if (sence != nullptr)
+			{
+				//实例场景更新
+				if ( ! sence->Update()) {
+					break;
+				}
 			}
 
 			//绘制
 			pD3D9->BeginScene();
 
 			//回调
-			if (!pGame->Show()){
-				break;
+			if (sence != nullptr)
+			{
+				//实例场景渲染
+				if ( ! sence->Show()) {
+					break;
+				}
 			}
 
 			pD3D9->EndScene();
@@ -109,20 +124,15 @@ namespace AEngine {
 			pD3D9 = nullptr;
 		}
 
-		if (pGame != nullptr)
-		{
-			delete pGame;
-		}
-
 		delete this;
 	}
 
 	//---------------------------------------
-	//| 游戏更新类
+	//| 游戏场景类
 	//---------------------------------------
-	void Engine::SetGame(IGame* _game)
+	void Engine::SetGame(SceneManage* _scene)
 	{
-		pGame = _game;
+		pScene = _scene;
 	}
 
 	//设置标题

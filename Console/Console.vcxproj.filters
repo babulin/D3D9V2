@@ -18,19 +18,28 @@
     <ClCompile Include="Console.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="MScene.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp">
+    <ClCompile Include="SceneLogin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneSelRole.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="MScene.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="SceneLogin.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneSelRole.h">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

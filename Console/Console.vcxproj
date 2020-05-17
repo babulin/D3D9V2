@@ -153,8 +153,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="MScene.cpp" />
+    <ClCompile Include="SceneLogin.cpp" />
+    <ClCompile Include="SceneSelRole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
@@ -162,8 +163,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="SceneLogin.h" />
+    <ClInclude Include="MScene.h" />
+    <ClInclude Include="SceneSelRole.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

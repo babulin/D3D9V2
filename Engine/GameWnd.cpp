@@ -28,7 +28,7 @@ namespace AEngine {
 	//析构函数
 	GameWnd::~GameWnd()
 	{
-		std::cout << "[" << this << "]" << "[x]GameWind::~GameWind()析构" << std::endl;
+		std::cout << std::endl << "[X]" << "[" << this << "]" << "GameWind::~GameWind()析构" << std::endl;
 	}
 
 	//设置窗口大小

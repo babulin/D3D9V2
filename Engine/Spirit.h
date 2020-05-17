@@ -4,13 +4,11 @@
 namespace AEngine {
 
 	class AHLIN_API Spirit : public Graphies {
-	private:
-		wchar_t file[255];
-		wchar_t file_2[255];
 	public:
-		Spirit(const wchar_t file[], const wchar_t file_2[]);
+		Spirit();
 		~Spirit();
-		void Load();
+		void Load(const wchar_t file[]);
+		void Load(const wchar_t file[], const wchar_t file_2[]);
 		void Show(float wo, float ho, float x, float y);
 
 	};

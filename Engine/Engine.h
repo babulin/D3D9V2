@@ -2,7 +2,8 @@
 #include "Common.h"
 #include "GameWnd.h"	//窗口
 #include "D3D9.h"		//渲染器
-#include "IGame.h"		//游戏
+//#include "IGame.h"		//游戏
+#include "SceneManage.h"//场景管理
 
 namespace AEngine {
 
@@ -10,7 +11,7 @@ namespace AEngine {
 	private:
 		GameWnd* pGameWnd;		//游戏窗口
 		D3D9* pD3D9;			//渲染器
-		IGame* pGame;			//游戏类
+		SceneManage* pScene;	//场景管理
 
 		static Engine* pEngine;	//引擎对象单例
 	private:
@@ -25,7 +26,7 @@ namespace AEngine {
 		void Close();					//关闭
 
 		//get
-		void SetGame(IGame* _game);		//设置游戏类
+		void SetGame(SceneManage* _scene);		//设置场景管理
 
 		//windows
 		void SetTitle(wstring _title);
