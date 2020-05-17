@@ -42,3 +42,6 @@
 /Debug
 /.vs/D3D9V2/v16
 /ConsoleTest/Debug
+/Build/x64
+/ConsoleTest/x64/Debug
+/Test/x64/Debug

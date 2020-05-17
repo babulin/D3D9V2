@@ -3,6 +3,7 @@
 #include "SceneManage.h"
 #include "SceneLogin.h"
 #include "SceneSelRole.h"
+#include "SceneWorld.h"
 
 using namespace AEngine;
 
@@ -11,9 +12,11 @@ private:
 	static GAME_SCENE GameProgress;
 	SceneLogin *mSLogin;
 	SceneSelRole *mSelRole;
+	SceneWorld *mWorld;
 public:
 	MScene();
 	bool Init();
 	bool Update();
 	~MScene();
+	void SetKey();
 };

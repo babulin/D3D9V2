@@ -3,10 +3,11 @@
 
 bool SceneSelRole::Init()
 {
-	std::cout << "[" << this << "]" << "SceneSelRole::Init()\t" << std::endl;
+	std::cout << std::endl << "[" << this << "]" << "SceneSelRole::Init()\t" << std::endl;
 
 	//╪сть
-	mSpirit.Load(L"1.png");
+	UICode g_uiCode;
+	mBmp = new DataBmp("Data\\ui",g_uiCode.BG3);
 
 	return true;
 }
@@ -18,11 +19,12 @@ bool SceneSelRole::Update()
 
 bool SceneSelRole::Show()
 {
-	mSpirit.Show(800.0f, 600.0f, 0.0f, 0.0f);
+	mBmp->Draw();
 	return true;
 }
 
 SceneSelRole::~SceneSelRole()
 {
 	std::cout << "[X]" << "[" << this << "]" << "SceneSelRole::~SceneSelRole()\t" << std::endl;
+	delete mBmp;
 }

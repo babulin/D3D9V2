@@ -36,9 +36,6 @@
     <ClInclude Include="GameWnd.h">
       <Filter>头文件\功能</Filter>
     </ClInclude>
-    <ClInclude Include="GError.h">
-      <Filter>头文件\功能</Filter>
-    </ClInclude>
     <ClInclude Include="Common.h">
       <Filter>头文件\公共</Filter>
     </ClInclude>
@@ -47,9 +44,6 @@
     </ClInclude>
     <ClInclude Include="D3D9.h">
       <Filter>头文件\功能</Filter>
-    </ClInclude>
-    <ClInclude Include="IGame.h">
-      <Filter>头文件\开发</Filter>
     </ClInclude>
     <ClInclude Include="Spirit.h">
       <Filter>头文件\开发</Filter>
@@ -63,15 +57,15 @@
     <ClInclude Include="IScene.h">
       <Filter>头文件\核心</Filter>
     </ClInclude>
+    <ClInclude Include="EngineConfig.h">
+      <Filter>头文件\开发</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
       <Filter>头文件\核心</Filter>
     </ClCompile>
     <ClCompile Include="GameWnd.cpp">
-      <Filter>头文件\功能</Filter>
-    </ClCompile>
-    <ClCompile Include="GError.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
     <ClCompile Include="D3D9.cpp">
@@ -82,9 +76,6 @@
     </ClCompile>
     <ClCompile Include="Graphies.cpp">
       <Filter>头文件\抽象层</Filter>
-    </ClCompile>
-    <ClCompile Include="IGame.cpp">
-      <Filter>头文件\开发</Filter>
     </ClCompile>
     <ClCompile Include="SceneManage.cpp">
       <Filter>头文件\核心</Filter>

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\功能">
+      <UniqueIdentifier>{5c148bbe-25c1-4203-9a4f-59fbce4fe93f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Console.cpp">
@@ -27,6 +30,21 @@
     <ClCompile Include="SceneSelRole.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="DataBmp.cpp">
+      <Filter>源文件\功能</Filter>
+    </ClCompile>
+    <ClCompile Include="DataWzl.cpp">
+      <Filter>源文件\功能</Filter>
+    </ClCompile>
+    <ClCompile Include="DataWzx.cpp">
+      <Filter>源文件\功能</Filter>
+    </ClCompile>
+    <ClCompile Include="GPShader.cpp">
+      <Filter>源文件\功能</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneWorld.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MScene.h">
@@ -39,6 +57,24 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="SceneSelRole.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBmp.h">
+      <Filter>源文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="DataConfig.h">
+      <Filter>源文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="DataWzl.h">
+      <Filter>源文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="DataWzx.h">
+      <Filter>源文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="GPShader.h">
+      <Filter>源文件\功能</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneWorld.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

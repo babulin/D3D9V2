@@ -1,17 +1,21 @@
 #include "SceneLogin.h"
 #include <iostream>
 
-
 bool SceneLogin::Init()
 {
-	std::cout << "[" << this << "]" << "SceneLogin::Init()\t" << std::endl;
+	std::cout << std::endl << "[" << this << "]" << "SceneLogin::Init()\t" << std::endl;
 
-	//初始化一些资源
-	//pSpirit = new Spirit();
-	//pSpirit->Load(L"1.png", L"2.png");
 
-	//加载
-	mSpirit.Load(L"1.png");
+
+	//渐变效果
+	//mPSShader = new GPShader(TEXT("PS_01.hlsl"));
+	//mPSShader->SetColorToColor(COLORF_BLACK, COLORF_WHITE, 0.01f);
+
+	//初始化图片
+	UICode g_uiCode;
+	mBmp = new DataBmp("Data\\ui", g_uiCode.BG1);
+
+	//mBmp->SetPSShader(mPSShader);//渐变效果
 
 	return true;
 }
@@ -23,12 +27,15 @@ bool SceneLogin::Update()
 
 bool SceneLogin::Show()
 {
-	//pSpirit->Show(500.0f, 480.0f, 0.0f, 0.0f);
-	mSpirit.Show(500.0f, 480.0f, 0.0f, 0.0f);
+	mBmp->Draw();
 	return true;
 }
 
 SceneLogin::~SceneLogin()
 {
 	std::cout << "[X]" << "[" << this << "]" << "SceneLogin::~SceneLogin()\t" << std::endl;
+	if (mBmp != nullptr)
+	{
+		delete mBmp;
+	}
 }

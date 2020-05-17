@@ -1,8 +1,14 @@
 #include "Spirit.h"
 namespace AEngine {
+	Spirit::Spirit(const wchar_t file[])
+	{
+		std::cout << "[" << this << "]" << "Spirit::Spirit()\t" << std::endl;
+		Load(file);
+	}
+
 	Spirit::Spirit()
 	{
-		
+
 	}
 
 	Spirit::~Spirit()
@@ -15,6 +21,7 @@ namespace AEngine {
 		{
 			pTexture2->Release();
 		}
+		std::cout << "[" << this << "]" << "Spirit::~Spirit()\t" << std::endl;
 	}
 
 	void Spirit::Load(const wchar_t file[]) {

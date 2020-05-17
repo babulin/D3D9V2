@@ -1,11 +1,11 @@
 #pragma once
 #include "IScene.h"
-#include "Spirit.h"
+#include "DataBmp.h"
 using namespace AEngine;
 
 class SceneSelRole : public IScene {
 public:
-	Spirit mSpirit;
+	DataBmp *mBmp;
 public:
 	// Í¨¹ý IScene ¼Ì³Ð
 	virtual bool Init() override;
