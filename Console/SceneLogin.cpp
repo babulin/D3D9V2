@@ -8,14 +8,14 @@ bool SceneLogin::Init()
 
 
 	//渐变效果
-	//mPSShader = new GPShader(TEXT("PS_01.hlsl"));
-	//mPSShader->SetColorToColor(COLORF_BLACK, COLORF_WHITE, 0.01f);
+	mPSShader = new GPShader(TEXT("PS_01.hlsl"));
+	mPSShader->SetColorToColor(COLORF_WHITE, COLORF_BLACK, 0.01f);
 
 	//初始化图片
 	UICode g_uiCode;
 	mBmp = new DataBmp("Data\\ui", g_uiCode.BG1);
 
-	//mBmp->SetPSShader(mPSShader);//渐变效果
+	mBmp->SetPSShader(mPSShader);//渐变效果
 
 	return true;
 }

@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(SolutionDir)Engine\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(DXSDK_DIR)Lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Build\$(PlatformTarget)\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Configuration)\</IntDir>
   </PropertyGroup>
