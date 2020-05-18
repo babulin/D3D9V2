@@ -45,3 +45,6 @@
 /Build/x64
 /ConsoleTest/x64/Debug
 /Test/x64/Debug
+/Build/Release
+/Mir2/x64/Release
+/Test/x64/Release
