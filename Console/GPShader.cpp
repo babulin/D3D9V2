@@ -11,6 +11,15 @@ GPShader::GPShader(const TCHAR _file[])
 GPShader::~GPShader()
 {
 	std::cout << "[X]" << "[" << this << "]" << "GPShader::~GPShader()\t" << std::endl;
+	if (mConstTable != nullptr)
+	{
+		mConstTable->Release();
+	}
+
+	if (mPixelShader != nullptr)
+	{
+		mPixelShader->Release();
+	}
 }
 
 void GPShader::Load()
