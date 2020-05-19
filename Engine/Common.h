@@ -11,7 +11,6 @@
 	#include <d3d9.h>
 	#pragma comment(lib,"d3d9.lib")
 	#pragma comment(lib,"d3dx9.lib")//d3d¡¥Ω”ø‚
-
 	typedef IDirect3D9* AGE_API;
 	typedef IDirect3DDevice9* AGE_DEVICE;
 
