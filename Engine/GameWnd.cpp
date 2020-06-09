@@ -51,7 +51,7 @@ namespace AEngine {
 	{
 		std::cout << "[" << this << "]" << "GameWind::Create()" << std::endl;
 
-		HINSTANCE hInstance = GetModuleHandle(nullptr);
+		hInstance = GetModuleHandle(nullptr);
 
 		//1¡¢¶ÔÏó
 		WNDCLASS wc;

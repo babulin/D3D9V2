@@ -29,6 +29,7 @@ namespace AEngine {
 		pGameWnd = GameWnd::CreateWnd();
 		pD3D9 = D3D9::GetInstance();
 		pD3D9->SetWnd(pGameWnd);
+		pDInput = DXInput::GetInstance();
 	}
 
 
@@ -61,7 +62,10 @@ namespace AEngine {
 		}
 
 		//初始化输入
-
+		if ( ! pDInput->Init(pGameWnd->hInstance,pGameWnd->hwnd))
+		{
+			return false;
+		}
 
 		return true;
 	}
@@ -94,6 +98,9 @@ namespace AEngine {
 			//绘制
 			pD3D9->BeginScene();
 
+			//输入获取
+			pDInput->Read();
+
 			//回调
 			if (sence != nullptr)
 			{
@@ -122,6 +129,12 @@ namespace AEngine {
 		{
 			delete pD3D9;
 			pD3D9 = nullptr;
+		}
+
+		if (pDInput != nullptr)
+		{
+			delete pDInput;
+			pDInput = nullptr;
 		}
 
 		delete this;

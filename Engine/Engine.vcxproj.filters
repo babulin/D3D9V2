@@ -60,7 +60,7 @@
     <ClInclude Include="EngineConfig.h">
       <Filter>头文件\开发</Filter>
     </ClInclude>
-    <ClInclude Include="DInput.h">
+    <ClInclude Include="DXInput.h">
       <Filter>头文件\功能</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,7 +83,7 @@
     <ClCompile Include="SceneManage.cpp">
       <Filter>头文件\核心</Filter>
     </ClCompile>
-    <ClCompile Include="DInput.cpp">
+    <ClCompile Include="DXInput.cpp">
       <Filter>头文件\功能</Filter>
     </ClCompile>
   </ItemGroup>

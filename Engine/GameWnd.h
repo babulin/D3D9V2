@@ -13,7 +13,7 @@ namespace AEngine {
 		int height;			//窗口高
 		wstring title;      //窗口标题
 		POINT mMouse;       //鼠标
-
+		HINSTANCE hInstance;//实例句柄
 		static GameWnd* gGameWnd;//单例对象
 	private:
 		GameWnd();

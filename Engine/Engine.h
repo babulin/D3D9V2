@@ -2,7 +2,8 @@
 #include "Common.h"
 #include "GameWnd.h"	//窗口
 #include "D3D9.h"		//渲染器
-//#include "IGame.h"		//游戏
+#include "DXInput.h"		//输入控制器
+//#include "IGame.h"	//游戏
 #include "SceneManage.h"//场景管理
 
 namespace AEngine {
@@ -11,6 +12,7 @@ namespace AEngine {
 	private:
 		GameWnd* pGameWnd;		//游戏窗口
 		D3D9* pD3D9;			//渲染器
+		DXInput* pDInput;		//输入控制
 		SceneManage* pScene;	//场景管理
 
 		static Engine* pEngine;	//引擎对象单例

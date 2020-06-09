@@ -168,7 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
-    <ClInclude Include="DInput.h" />
+    <ClInclude Include="DXInput.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineConfig.h" />
     <ClInclude Include="framework.h" />
@@ -180,7 +180,7 @@
     <ClInclude Include="Spirit.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DInput.cpp" />
+    <ClCompile Include="DXInput.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameWnd.cpp" />
     <ClCompile Include="D3D9.cpp" />
