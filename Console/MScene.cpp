@@ -1,13 +1,11 @@
 #include "MScene.h"
 #include <iostream>
-#include "DXInput.h"
 //初始化场景进度
 GAME_SCENE MScene::GameProgress = GAME_SCENE::GS_Login;
 static bool kBtn1 = true;
 static bool kBtn2 = true;
 static bool kBtn3 = true;
 
-DXInput* g_pKeyboard;
 MScene::MScene()
 {
 
@@ -38,11 +36,9 @@ bool MScene::Update()
 			break;
 		case GAME_SCENE::GS_SelectRole:
 			SetScene(mSelRole);
-			//SetScene(nullptr);
 			break;
 		case GAME_SCENE::GS_World:
 			SetScene(mWorld);
-			//SetScene(nullptr);
 			break;
 		default:
 			break;
@@ -51,7 +47,7 @@ bool MScene::Update()
 }
 
 void MScene::SetKey() {
-	if (g_pKeyboard->GetKeyState(DIK_1))
+	if (GetKeyState(DIK_1))
 	{
 		if (kBtn1)
 		{
@@ -66,7 +62,7 @@ void MScene::SetKey() {
 		kBtn1 = true;
 	}
 
-	if (g_pKeyboard->GetKeyState(DIK_2))
+	if (GetKeyState(DIK_2))
 	{
 		if (kBtn2)
 		{
@@ -82,7 +78,7 @@ void MScene::SetKey() {
 		kBtn2 = true;
 	}
 
-	if (g_pKeyboard->GetKeyState(DIK_3))
+	if (GetKeyState(DIK_3))
 	{
 		if (kBtn3)
 		{

@@ -22,6 +22,10 @@ bool SceneLogin::Init()
 
 bool SceneLogin::Update()
 {
+	if (GetKeyState(DIK_4))
+	{
+		MessageBox(nullptr, L"可恶的人类你居然按下了4", L"按键提示", 0);
+	}
 	return true;
 }
 

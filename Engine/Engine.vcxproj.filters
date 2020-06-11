@@ -63,6 +63,9 @@
     <ClInclude Include="DXInput.h">
       <Filter>头文件\功能</Filter>
     </ClInclude>
+    <ClInclude Include="GController.h">
+      <Filter>头文件\核心</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -85,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="DXInput.cpp">
       <Filter>头文件\功能</Filter>
+    </ClCompile>
+    <ClCompile Include="GController.cpp">
+      <Filter>头文件\核心</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

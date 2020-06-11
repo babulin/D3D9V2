@@ -13,6 +13,15 @@ namespace AEngine {
 		return true;
 	}
 
+	SceneManage::~SceneManage()
+	{
+		if (pScene != nullptr)
+		{
+			//程序结束删除最后一个场景
+			delete pScene;
+		}
+	}
+
 	bool SceneManage::SetScene(IScene* _scene)
 	{
 		if (pScene == _scene)
