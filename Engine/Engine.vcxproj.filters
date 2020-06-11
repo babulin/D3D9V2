@@ -66,6 +66,9 @@
     <ClInclude Include="GController.h">
       <Filter>头文件\核心</Filter>
     </ClInclude>
+    <ClInclude Include="DXAudio.h">
+      <Filter>头文件\功能</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
