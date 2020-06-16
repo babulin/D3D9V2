@@ -4,7 +4,8 @@ GPShader::GPShader(const TCHAR _file[])
 	std::cout << "[" << this << "]" << "GPShader::GPShader()\t" << std::endl;
 	m_d3dDevice = GetDevice();
 	lstrcpy(file, _file);
-	Load();
+	//Load();
+	LoadCSO();
 }
 
 
@@ -30,7 +31,7 @@ void GPShader::Load()
 
 
 	//编译着色器
-	HRESULT hr = D3DXCompileShaderFromFile(file, 0, 0, "main", "ps_2_0", D3DXSHADER_DEBUG, &shader, &errorBuffer, &mConstTable);
+	HRESULT hr = D3DXCompileShaderFromFile(file, 0, 0, "main", "ps_3_0", D3DXSHADER_DEBUG, &shader, &errorBuffer, &mConstTable);
 	if (errorBuffer)
 	{
 		MessageBox(NULL, (LPCWSTR)errorBuffer->GetBufferPointer(), 0, 0);
@@ -53,6 +54,40 @@ void GPShader::Load()
 
 	shader->Release();
 }
+
+void GPShader::LoadCSO()
+{
+	FILE* fp;
+	fopen_s(&fp, "pixel.bat", "rb");
+
+	//偏移到结尾
+	fseek(fp, 0, SEEK_END);
+	//获取大小
+	int size = ftell(fp);
+	//创建空间大小
+	byte* buf = new byte[size];
+	//偏移到头
+	fseek(fp, 0, SEEK_SET);
+	//内存清空
+	memset(buf, 0, size);
+	//读取数据
+	int nRead = fread(buf, sizeof(byte), size, fp);
+
+	//创建像素着色器
+	HRESULT hr = m_d3dDevice->CreatePixelShader((DWORD*)buf, &mPixelShader);
+	if (FAILED(hr))
+	{
+		MessageBox(NULL, L"CreatePixelShader - failed", 0, 0);
+		return;
+	}
+
+	D3DXGetShaderConstantTable((DWORD*)buf, &mConstTable);
+
+	delete[] buf;
+	fclose(fp);
+}
+
+
 
 void GPShader::SetColorToColor(D3DXVECTOR4 _DstColor, D3DXVECTOR4 _SrcColor,float _speed)
 {

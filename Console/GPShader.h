@@ -18,6 +18,7 @@ public:
 	GPShader(const TCHAR _file[]);
 	~GPShader();
 	void Load();
+	void LoadCSO();
 	void SetColorToColor(D3DXVECTOR4 _DstColor, D3DXVECTOR4 _SrcColor, float _speed = 0.01f);
 	void SetPixelShader();
 	bool hasMask();
