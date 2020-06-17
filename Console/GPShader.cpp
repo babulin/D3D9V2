@@ -71,7 +71,7 @@ void GPShader::LoadCSO()
 	//内存清空
 	memset(buf, 0, size);
 	//读取数据
-	int nRead = fread(buf, sizeof(byte), size, fp);
+	size_t nRead = fread(buf, sizeof(byte), size, fp);
 
 	//创建像素着色器
 	HRESULT hr = m_d3dDevice->CreatePixelShader((DWORD*)buf, &mPixelShader);
