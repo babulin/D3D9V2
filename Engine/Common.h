@@ -24,6 +24,10 @@
 	#include <XAudio2.h>
 	#pragma comment(lib,"Ole32.lib")
 
+	//DirectSound
+	#include <dsound.h>
+	#pragma comment(lib,"dsound.lib")
+
 	typedef IDirect3D9* AGE_API;
 	typedef IDirect3DDevice9* AGE_DEVICE;
 

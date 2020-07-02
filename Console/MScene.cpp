@@ -17,6 +17,7 @@ bool MScene::Init()
 
 	//场景对象
 	mSLogin = new SceneLogin();
+	//mWorld = new SceneWorld();
 
 	//获得输入
 	g_pKeyboard = DXInput::GetInstance();

@@ -29,6 +29,7 @@ namespace AEngine {
 		pGameWnd = GameWnd::CreateWnd();
 		pD3D9 = D3D9::GetInstance();
 		pD3D9->SetWnd(pGameWnd);
+		pDSound = DXSound::GetInstance();
 		pDInput = DXInput::GetInstance();
 	}
 
@@ -58,6 +59,12 @@ namespace AEngine {
 		}
 
 		if ( !pScene->Init()) {
+			return false;
+		}
+
+		//ÒôÆµ³õÊ¼»¯
+		if ( !pDSound->Init(pGameWnd->hwnd))
+		{
 			return false;
 		}
 
