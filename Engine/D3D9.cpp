@@ -19,6 +19,11 @@ namespace AEngine {
 		std::cout << "[" << this << "]" << "D3D9::D3D9()\t" << std::endl;
 	}
 
+	void D3D9::SetFullScreen(bool _full)
+	{
+		m_fullscreen = _full;
+	}
+
 	void D3D9::SetWnd(GameWnd* _gameWnd)
 	{
 		pGameWnd = _gameWnd;
@@ -71,9 +76,18 @@ namespace AEngine {
 
 		D3DPRESENT_PARAMETERS d3dpp;
 		ZeroMemory(&d3dpp, sizeof(d3dpp));
-		d3dpp.Windowed = TRUE;
+		if (m_fullscreen)
+		{
+			d3dpp.Windowed = FALSE;
+			d3dpp.BackBufferWidth = pGameWnd->width;
+			d3dpp.BackBufferHeight = pGameWnd->height;
+		}
+		else {
+			d3dpp.Windowed = TRUE;
+		}
+
 		d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
-		d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
+		d3dpp.BackBufferFormat = d3ddm.Format;
 		d3dpp.EnableAutoDepthStencil = TRUE;//自动维护深度缓存
 		d3dpp.AutoDepthStencilFormat = D3DFMT_D16;//深度缓存像素格式[clear时清除ZBUFFER] D3DCLEAR_ZBUFFER
 		d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;// D3DPRESENT_INTERVAL_IMMEDIATE;
