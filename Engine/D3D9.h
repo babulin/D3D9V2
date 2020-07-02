@@ -10,7 +10,7 @@ namespace AEngine {
 		IDirect3D9* m_d3d9;				//d3d对象
 		IDirect3DDevice9* m_d3dDevice;	//设备对象
 	private:
-		bool m_fullscreen = true;
+		bool m_fullscreen = false;
 		static D3D9* pD3D9;
 		D3D9();
 	public:
